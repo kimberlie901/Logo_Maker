@@ -22,7 +22,7 @@ const inquirer = require("inquirer");
 
 const fs = require("fs");
 
-const shape = require("./lib/shapes");
+const {circle, square, triangle} = require("./lib/shapes");
 
 const generateSVG = require("./lib/generateSvg"); 
 
