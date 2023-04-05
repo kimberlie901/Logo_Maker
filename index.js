@@ -22,10 +22,11 @@ const inquirer = require("inquirer");
 
 const fs = require("fs");
 
-const shapes = require("./lib/shapes");
+const {Circle, Square, Triangle} = require("./lib/shapes");
 
 const generateSVG = require("./lib/generateSvg"); 
 const { error } = require("console");
+const { ifError } = require("assert");
 
 
 // array of questions for user input
@@ -56,19 +57,24 @@ const questions = [
 
 // //
 function writeToFile(fileName, data) {
+    console.log(data)
     fs.writeFileSync(fileName, data, (error) => 
     error ? console.error(error): console.log());
 }
 
 // TODO: Create a function to initialize logo
-function init() {
-    inquirer.prompt(questions)
-        .then((data) => {
-            console.log("Generating Your SVG Logo");
-            writeToFile("./lib/generateSvg.js",new generateSVG({...data}));
-        })    
-};
-
+function init () { 
+inquirer.prompt(questions).then((data) => {
+        fs.writeFile("./examples", generateSVG(data)), (error) => {
+            if (error) {
+                console.log(error);
+            }
+            else {
+                console.log("Generating Your SVG Logo");
+            }
+    }    
+})
+}
 
 // Function call to initialize logo
-init();
+init()
