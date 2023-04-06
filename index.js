@@ -22,11 +22,15 @@ const inquirer = require("inquirer");
 
 const fs = require("fs");
 
-const {Circle, Square, Triangle} = require("./lib/shapes");
 
+
+// const {Circle, Square, Triangle} = require("./lib/shapes");
+
+// const generateSVG = require("./lib/generateSvg"); 
 const generateSVG = require("./lib/generateSvg"); 
-const { error } = require("console");
-const { ifError } = require("assert");
+
+// const { error } = require("console");
+// const { ifError } = require("assert");
 
 
 // array of questions for user input
@@ -36,6 +40,9 @@ const questions = [
         type: "input",
         name: "logoName",
         message: "Enter up to (3) chacters for the text.",
+        validate(value) {
+            return(value.length <= 3) ? true: "Please enter up to (3) characters only";
+        }
     },
     {
         type: "input",
@@ -56,7 +63,7 @@ const questions = [
 ]
 
 // //
-function writeToFile(fileName, data) {
+function writeFile(fileName, data) {
     console.log(data)
     fs.writeFileSync(fileName, data, (error) => 
     error ? console.error(error): console.log());
@@ -65,9 +72,10 @@ function writeToFile(fileName, data) {
 // TODO: Create a function to initialize logo
 function init () { 
 inquirer.prompt(questions).then((data) => {
-        fs.writeFile("./examples", new generateSVG(data), (error) => {
-            if (error) {
-                console.log(error);
+    const { logoName, textShape, textColor, shapeColor} = data;
+        fs.writeFile("./examples/userLogo.svg", new generateSVG(data), (err) => {
+            if (err) {
+                console.log(err);
             }
             else {
                 console.log("Generating Your SVG Logo");
