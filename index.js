@@ -65,14 +65,14 @@ function writeToFile(fileName, data) {
 // TODO: Create a function to initialize logo
 function init () { 
 inquirer.prompt(questions).then((data) => {
-        fs.writeFile("./examples", generateSVG(data)), (error) => {
+        fs.writeFile("./examples", new generateSVG(data), (error) => {
             if (error) {
                 console.log(error);
             }
             else {
                 console.log("Generating Your SVG Logo");
             }
-    }    
+    })    
 })
 }
 
