@@ -4,9 +4,9 @@
 
 ## Installation
 
-- Clone or download the repository to the Visual Studio Code
-- Open the command line in VS Code
-- nmp install to install the required dependencies 
+1. Clone or download the repository to the Visual Studio Code
+2. Open the command line in VS Code
+3. nmp install to install the required dependencies 
 
 ## Usage
 
@@ -26,6 +26,11 @@
 ## Tests
 
 Tests can be run by using Jest in the command line in the VS Code 
+
+## Credits 
+
+- https://www.w3schools.com/graphics/svg_circle.asp
+- https://www.w3schools.com/graphics/svg_polygon.asp 
 
 ## License 
 

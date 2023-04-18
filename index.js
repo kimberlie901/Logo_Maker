@@ -16,25 +16,15 @@
  */
 
 
-// packages needed for application 
-
+//Dependencies
 const inquirer = require("inquirer");
-
 const fs = require("fs");
-
-
-
-// const {Circle, Square, Triangle} = require("./lib/shapes");
+const {Circle, Square, Triangle} = require("./lib/shapes");
 
 // const generateSVG = require("./lib/generateSvg"); 
 const generateSVG = require("./lib/generateSvg"); 
 
-// const { error } = require("console");
-// const { ifError } = require("assert");
-
-
 // array of questions for user input
-
 const questions = [
     {
         type: "input",
@@ -51,7 +41,7 @@ const questions = [
     },
     {
         type: "list",
-        name: "textShape",
+        name: "logoShape",
         message: "Choose a shape for the logo.",
         choices: ["CIRCLE", "SQUARE", "TRIANGLE"]
     },
@@ -62,23 +52,26 @@ const questions = [
     }
 ]
 
-// //
-function writeFile(fileName, data) {
-    console.log(data)
-    fs.writeFileSync(fileName, data, (error) => 
-    error ? console.error(error): console.log());
-}
-
 // TODO: Create a function to initialize logo
 function init () { 
-inquirer.prompt(questions).then((data) => {
-    const { logoName, textShape, textColor, shapeColor} = data;
+inquirer.prompt(questions).then((answers) => {
+    const {logoName, logoShape, textColor, shapeColor} = answers
+
+    if (logoShape === "CIRCLE") {
+        logoShape = new Circle();
+    }
+    if (logoShape === "SQUARE") {
+        logoShape = new Square();
+    }
+    if (logoShape === "TRIANGLE") {
+        logoShape = new Triangle();
+    }
         fs.writeFile("./examples/userLogo.svg", new generateSVG(data), (err) => {
             if (err) {
                 console.log(err);
             }
             else {
-                console.log("Generating Your SVG Logo");
+                console.log("Generating Your SVG Logo"); generateSVG(logoName, logoShape, textColor, shapeColor)
             }
     })    
 })
