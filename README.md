@@ -35,19 +35,23 @@ A command-line application for creating custom logos and saving them as an SVG f
 
 Tests can be run by using npm test in the command line in the VS Code 
 
-## Logo Examples 
+## Application Screenshots 
+
+- Tests
+
+![Test](images/test.png)
 
 - Circle
 
-![Circle Screenshot](images/circle.png)
+![Circle](images/circle.png)
 
 - Square
 
-![Square Screenshot](images/square.png)
+![Square](images/square.png)
 
 - Triangle 
 
-![Triangle Screenshot](images/triangle.png)
+![Triangle](images/triangle.png)
 
 ## Credits 
 
