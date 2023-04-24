@@ -59,16 +59,16 @@ function init() {
             let { logoName, logoShape, textColor, shapeColor } = answers
 
             if (logoShape === "CIRCLE") {
-                logoShape = new Circle();
+                logoShape = new Circle(shapeColor, logoName);
             }
             else if (logoShape === "SQUARE") {
-                logoShape = new Square();
+                logoShape = new Square(shapeColor, logoName);
             }
             else if (logoShape === "TRIANGLE") {
-                logoShape = new Triangle();
+                logoShape = new Triangle(shapeColor, logoName);
             }
             const userLogo = new generateSVG(logoName, logoShape, textColor, shapeColor);
-            fs.writeFile("./examples/userLogo.svg", userLogo, (err) => {
+            fs.writeFile("./examples/userLogo.svg", userLogo.render(), (err) => {
                 if (err) {
                     console.log(err);
                 } else {
