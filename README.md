@@ -53,6 +53,10 @@ Tests can be run by using npm test in the command line in the VS Code
 
 ![Triangle](images/triangle.png)
 
+## Demo Video 
+
+[SVG Logo Maker Demo Video](https://drive.google.com/file/d/15HUrX-G1gA5x3XjXc0a2DDVFIbfy5qAC/view)
+
 ## Credits 
 
 - https://www.w3schools.com/graphics/svg_circle.asp
