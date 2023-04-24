@@ -43,7 +43,7 @@ Tests can be run by using npm test in the command line in the VS Code
 
 ## Websites
 
-- [Deployed Application]()
+- [Deployed Application](https://kimberlie901.github.io/Logo_Maker/)
 - [Github](https://github.com/kimberlie901/Logo_Maker)
 
 ## License 
